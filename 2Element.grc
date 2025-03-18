@@ -1,0 +1,351 @@
+options:
+  parameters:
+    author: bimapancara
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: AoA2Element
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: AoA 2 Element
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: array_space
+  id: variable
+  parameters:
+    comment: ''
+    value: 0.5*wavelength
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [304, 16.0]
+    rotation: 0
+    state: enabled
+- name: c
+  id: variable
+  parameters:
+    comment: ''
+    value: 3e8
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 16.0]
+    rotation: 0
+    state: enabled
+- name: freq
+  id: variable
+  parameters:
+    comment: ''
+    value: 5e9
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 16.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '64000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 16.0]
+    rotation: 0
+    state: enabled
+- name: wavelength
+  id: variable
+  parameters:
+    comment: ''
+    value: c/freq
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [504, 16.0]
+    rotation: 0
+    state: enabled
+- name: AoA
+  id: qtgui_number_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    autoscale: 'True'
+    avg: '0'
+    color1: ("black", "black")
+    color10: ("black", "black")
+    color2: ("black", "black")
+    color3: ("black", "black")
+    color4: ("black", "black")
+    color5: ("black", "black")
+    color6: ("black", "black")
+    color7: ("black", "black")
+    color8: ("black", "black")
+    color9: ("black", "black")
+    comment: ''
+    factor1: '1'
+    factor10: '1'
+    factor2: '1'
+    factor3: '1'
+    factor4: '1'
+    factor5: '1'
+    factor6: '1'
+    factor7: '1'
+    factor8: '1'
+    factor9: '1'
+    graph_type: qtgui.NUM_GRAPH_NONE
+    gui_hint: ''
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    max: '100'
+    min: '-100'
+    name: '"Angle of Arrival"'
+    nconnections: '1'
+    type: float
+    unit1: ''
+    unit10: ''
+    unit2: ''
+    unit3: ''
+    unit4: ''
+    unit5: ''
+    unit6: ''
+    unit7: ''
+    unit8: ''
+    unit9: ''
+    update_time: '0.10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1344, 204.0]
+    rotation: 0
+    state: enabled
+- name: blocks_complex_to_magphase_0
+  id: blocks_complex_to_magphase
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 176.0]
+    rotation: 0
+    state: enabled
+- name: blocks_complex_to_magphase_0_0
+  id: blocks_complex_to_magphase
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [456, 296.0]
+    rotation: 0
+    state: enabled
+- name: blocks_null_sink_0
+  id: blocks_null_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_sink: '[[0,],]'
+    comment: ''
+    num_inputs: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [672, 176.0]
+    rotation: 0
+    state: enabled
+- name: blocks_null_sink_0_0
+  id: blocks_null_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_sink: '[[0,],]'
+    comment: ''
+    num_inputs: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [672, 296.0]
+    rotation: 0
+    state: enabled
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1160, 228.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\n\nclass blk(gr.sync_block):  \n    \"\"\"Angle\
+      \ of Arrival Estimation for a 2-element ULA\"\"\"\n\n    def __init__(self,\
+      \ frequency=2.4e9, array_spacing=0.5):  \n        \"\"\"Initialize parameters\"\
+      \"\"\n        gr.sync_block.__init__(\n            self,\n            name='Angle\
+      \ of Arrival Estimation (2-Element ULA)',\n            in_sig=[np.float32, np.float32],\
+      \  # Two phase inputs (already in radians)\n            out_sig=[np.float32]\
+      \  # Output AoA in degrees\n        )\n        self.frequency = frequency\n\
+      \        self.array_spacing = array_spacing\n        self.wavelength = 3e8 /\
+      \ frequency  # Speed of light / frequency\n\n    def work(self, input_items,\
+      \ output_items):\n        \"\"\"Process incoming phase signals\"\"\"\n     \
+      \   phi_0 = input_items[0]  # Already in radians\n        phi_1 = input_items[1]\n\
+      \n        num_samples = len(phi_0)\n        theta_deg = np.zeros(num_samples,\
+      \ dtype=np.float32)\n\n        for i in range(num_samples):\n            # Compute\
+      \ phase differences (with proper wrapping)\n            delta_phi_1 = np.angle(np.exp(1j\
+      \ * (phi_1[i] - phi_0[i])))  # Between Antenna 0 & 1\n            \n       \
+      \     # Take the average phase difference for robustness\n            delta_phi_avg\
+      \ = delta_phi_1 \n\n            # Estimate AoA\n            sin_theta = (self.wavelength\
+      \ * delta_phi_avg) / (2 * np.pi * self.array_spacing)\n            sin_theta\
+      \ = np.clip(sin_theta, -1, 1)  # Prevent NaN errors\n\n            theta_rad\
+      \ = np.arcsin(sin_theta)\n            theta_deg[i] = np.degrees(theta_rad)\n\
+      \n        output_items[0][:] = theta_deg\n        return len(output_items[0])\n"
+    affinity: ''
+    alias: ''
+    array_spacing: array_space
+    comment: ''
+    frequency: freq
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Angle of Arrival Estimation (2-Element ULA)', 'blk', [('frequency',
+      '2400000000.0'), ('array_spacing', '0.5')], [('0', 'float', 1), ('1', 'float',
+      1)], [('0', 'float', 1)], 'Angle of Arrival Estimation for a 2-element ULA',
+      ['array_spacing', 'frequency'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [832, 224.0]
+    rotation: 0
+    state: enabled
+- name: zeromq_sub_source_0
+  id: zeromq_sub_source
+  parameters:
+    address: tcp://127.0.0.1:49200
+    affinity: ''
+    alias: ''
+    bind: 'False'
+    comment: ''
+    hwm: '-1'
+    key: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    pass_tags: 'False'
+    timeout: '100'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [120, 156.0]
+    rotation: 0
+    state: enabled
+- name: zeromq_sub_source_1
+  id: zeromq_sub_source
+  parameters:
+    address: tcp://127.0.0.1:49202
+    affinity: ''
+    alias: ''
+    bind: 'False'
+    comment: ''
+    hwm: '-1'
+    key: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    pass_tags: 'False'
+    timeout: '100'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [120, 284.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [blocks_complex_to_magphase_0, '0', blocks_null_sink_0, '0']
+- [blocks_complex_to_magphase_0, '1', epy_block_0, '0']
+- [blocks_complex_to_magphase_0_0, '0', blocks_null_sink_0_0, '0']
+- [blocks_complex_to_magphase_0_0, '1', epy_block_0, '1']
+- [blocks_throttle2_0, '0', AoA, '0']
+- [epy_block_0, '0', blocks_throttle2_0, '0']
+- [zeromq_sub_source_0, '0', blocks_complex_to_magphase_0, '0']
+- [zeromq_sub_source_1, '0', blocks_complex_to_magphase_0_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.12.0
